@@ -3,7 +3,7 @@ module.exports = {
         return
     },
     create(req, res) {
-        return
+        return res.render("teachers/create")
     },
     post(req, res) {
         return
