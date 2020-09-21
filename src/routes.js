@@ -3,7 +3,7 @@ const routes = express.Router()
 const teachers = require('./app/controller/TeachersController')
 
 routes.get('/', function(req, res) {
-    return res.redirect('/teachers')
+    return res.render('layout.njk')
 })
 
 /*=== Teachers Routes ===*/

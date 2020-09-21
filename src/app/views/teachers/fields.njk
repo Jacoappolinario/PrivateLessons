@@ -27,8 +27,8 @@
     <div>
         <input 
         type="date"
-        name="birth"
-        value="{{ teacher.birth }}"
+        name="birth_date"
+        value="{{ teacher.birth_date }}"
         >
     </div>
 </div>
@@ -36,18 +36,18 @@
 <div class="item">
     <div>Grau de Escolaridade</div>
     <div>
-        <select name="grau">
-            <option value="1" {% if teacher.grau == 1 %}
+        <select name="education_level">
+            <option value="1" {% if teacher.education_level == 1 %}
                 selected
             {% endif %}> Ensino Médio Completo
             </option>
 
-            <option value="2" {% if teacher.grau == 2 %} 
+            <option value="2" {% if teacher.education_level == 2 %} 
                 selected 
             {% endif %}> Ensino Superior Completo
             </option>
 
-            <option value="3" {% if teacher.grau == 3 %} 
+            <option value="3" {% if teacher.education_level == 3 %} 
                 selected 
             {% endif %}> Mestrado e Doutorado
             </option>
@@ -61,7 +61,7 @@
         <span>
             <input 
             type="radio" 
-            name="type"
+            name="class_type"
             value="Presencial"
             {% if teacher.type == "Presencial" %}
                 checked
@@ -70,7 +70,7 @@
         <span>
             <input 
             type="radio" 
-            name="type"
+            name="class_type"
             value="Distancia"
             {% if teacher.type == "Distancia" %}
                 checked
@@ -84,9 +84,9 @@
     <div>
         <input 
         type="text"
-        name="services"
+        name="subjects_taught"
         placeholder="Separe as mastérias por vírgula"
-        value="{{ teacher.services }}"
+        value="{{ teacher.subjects_taught }}"
         >
     </div>
 </div>
