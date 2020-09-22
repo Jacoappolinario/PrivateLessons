@@ -30,5 +30,17 @@ module.exports = {
             birthDay: `${day}/${month}`,
             format: `${day}/${month}/${year}`
         }
+    },
+
+    graduation(value) {
+        let expr = value
+        switch(expr) {
+            case "1":
+                return "Ensino Médio Completo"
+            case "2":
+                return "Ensino Superior Completo"
+            case "3": 
+                return "Mestrado e Doutorado"
+        }
     }
 }
