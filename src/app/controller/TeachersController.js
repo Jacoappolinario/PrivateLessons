@@ -34,8 +34,13 @@ module.exports = {
 
         return res.render("teachers/show", { teacher })
     },
-    edit(req, res) {
-        return
+    async edit(req, res) {
+        let results = await Teachers.find(req.params.id)
+        const teacher = results.rows[0]
+
+        teacher.birth_date = date(teacher.birth_date).iso
+
+        return res.render("teachers/edit", { teacher })
     },
     put(req, res) {
         return
