@@ -42,8 +42,18 @@ module.exports = {
 
         return res.render("teachers/edit", { teacher })
     },
-    put(req, res) {
-        return
+    async put(req, res) {
+       const keys = Object.keys(req.body)
+
+       for (key of keys) {
+           if (req.body[key] == "") {
+               return res.send("please, fill all fields")
+           }
+       }
+
+       await Teachers.update(req.body)
+      
+       return res.redirect(`/teachers/${req.body.id}`)
     },
     delete(req, res) {
         return
