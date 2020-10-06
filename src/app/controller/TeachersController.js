@@ -4,7 +4,29 @@ const { age, date, graduation } = require('../../lib/utils')
 
 module.exports = {
     index(req, res) {
-        return
+        let { filter, page, limit } = req.query
+
+        page = page || 1
+        limit = limit || 2
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(teachers) {
+                const pagination = {
+                    total: Math.ceil(teachers[0].total / limit),
+                    page
+                }
+
+                return res.render("teachers/index", { teachers, pagination, filter })            
+            }
+        }
+
+        Teachers.paginate(params)
+
     },
     create(req, res) {
         return res.render("teachers/create")
@@ -55,7 +77,9 @@ module.exports = {
       
        return res.redirect(`/teachers/${req.body.id}`)
     },
-    delete(req, res) {
-        return
+    async delete(req, res) {
+        await Teachers.delete(req.body.id)
+
+        return res.redirect(`/teachers`)
     }
 } 
