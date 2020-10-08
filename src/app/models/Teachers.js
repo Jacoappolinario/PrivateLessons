@@ -69,9 +69,8 @@ module.exports = {
     delete(id) {
         return db.query(`DELETE FROM teachers WHERE id = $1`, [id])
     },
-    paginate(params) {
-        const { filter, limit, offset, callback } = params
-
+    paginate(filter, limit, offset) {
+    
         let query = "",
             filterQuery = "",
             totalQuery = `(
@@ -79,10 +78,9 @@ module.exports = {
             ) AS total`
 
             if (filter) {
-
                 filterQuery = `${query}
-                WHERE teachers.name ILIKE '%${filter}'
-                OR teachers.subjects_taught ILIKE '%${filter}'
+                WHERE teachers.name ILIKE '%${filter}%'
+                OR teachers.subjects_taught ILIKE '%${filter}%'
                 `
 
                 totalQuery = `(
@@ -99,10 +97,7 @@ module.exports = {
             GROUP BY teachers.id LIMIT $1 OFFSET $2
             `
 
-            db.query(query, [limit, offset], function(err, results) {
-                if (err) throw `Database Error! ${err}`
-
-                callback(results.rows)
-            })
+            return db.query(query, [limit, offset])
     }
+    
 }
