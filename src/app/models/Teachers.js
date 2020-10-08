@@ -85,7 +85,7 @@ module.exports = {
 
                 totalQuery = `(
                     SELECT count(*) FROM teachers
-                    ${filter}
+                    ${filterQuery}
                 ) as total`
             }
 
