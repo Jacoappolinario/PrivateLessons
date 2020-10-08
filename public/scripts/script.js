@@ -1,3 +1,12 @@
+const currentPage = location.pathname
+const menuItens = document.querySelectorAll("header .primary a")
+
+for (item of menuItens) {
+    if (currentPage.includes(item.getAttribute("href"))) {
+        item.classList.add("active")
+    }
+}
+
 function paginate(selectedPage, totalPages) {
     let pages = [],
     oldPage

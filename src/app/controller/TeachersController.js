@@ -20,7 +20,6 @@ module.exports = {
         
         return res.render("teachers/index", { teachers, filter })            
             
-
     },
 
     create(req, res) {
