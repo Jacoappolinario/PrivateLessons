@@ -4,49 +4,45 @@
 <div class="card">
     <section 
     class="avatar"
-    style="background: url({{ teacher.avatar_url }}) no-repeat center center / cover"></section>
+    style="background: url({{ student.avatar_url }}) no-repeat center center / cover"></section>
     <section class="details">
         <h3>Detalhes</h3>
 
         <div class="item">
-            <div>Professor (a)</div>
-            <div>{{ teacher.name }}</div>
+            <div>Aluno(a)</div>
+            <div>{{ student.name }}</div>
         </div>
 
           <div class="item">
-            <div>Idade</div>
-            <div>{{ teacher.age }}</div>
+            <div>Email</div>
+            <div>{{ student.email }}</div>
         </div>
 
         <div class="item">
-            <div>Grau de Escolaridade</div>
-            <div>{{ teacher.education_level }}</div>
+            <div>Aniversário</div>
+            <div>{{ student.birth }}</div>
         </div>
 
         <div class="item">
-            <div>Tipo de Aula</div>
-            <div>{{ teacher.class_type }}</div>
+            <div>Ano Escolar</div>
+            <div>{{ student.school_year }}</div>
         </div>
 
         <div class="item">
-            <div>Acompanhamento</div>
-            <div>
-                {% for subjects_taught in teacher.subjects_taught %}
-                <span>{{ subjects_taught }}</span>
-                {% endfor %}
-            </div>
+            <div>Carga Horária Semanal</div>
+            <div>{{ student.workload }}</div>
         </div>
 
         <div class="item">
-            <div>Desde</div>
-            <div>{{ teacher.created_at }}</div>
+            <div>Aluno de</div>
+            <div>{{ student.teacher_name }}</div>
         </div>
 
         <div class="form">
-            <a href="/teachers/{{ teacher.id }}/edit" class="button">Editar</a>
+            <a href="/students/{{ student.id }}/edit" class="button">Editar</a>
 
-            <form id="button-delete" method="POST" action="/teachers?_method=DELETE">
-                <input type="hidden" name="id" value="{{ teacher.id }}">
+            <form id="button-delete" method="POST" action="/students?_method=DELETE">
+                <input type="hidden" name="id" value="{{ student.id }}">
                 <button type="submit">Deletar</button>
             </form>
         </div>

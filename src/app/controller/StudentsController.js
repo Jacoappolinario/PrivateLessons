@@ -25,50 +25,56 @@ module.exports = {
         const teacherOptions = results.rows
         return res.render("students/create", { teacherOptions })
     },
-    // async post(req, res) {
-    //     const keys = Object.keys(req.body)
+    async post(req, res) {
+        const keys = Object.keys(req.body)
 
-    //     for (key of keys) {
-    //         if (req.body[key] == "") {
-    //             return res.send("Pleas, fill all fields")
-    //         }
-    //     }
+        for (key of keys) {
+            if (req.body[key] == "") {
+                return res.send("Pleas, fill all fields")
+            }
+        }
 
-    //     let results = await Students.create(req.body)
-    //     const student = results.rows[0].id
+        let results = await Students.create(req.body)
+        const student = results.rows[0].id
 
-    //     return res.redirect(`/students/${student}`)
-    // },
-    // async show(req, res) {
-    //     let results = await Students.find(req.params.id)
-    //     const student = results.rows[0]
+        return res.redirect(`/students/${student}`)
+    },
+    async show(req, res) {
+        let results = await Students.find(req.params.id)
+        const student = results.rows[0]
 
+        student.birth = date(student.birth).birthDay
+        student.school_year = grade(student.school_year)
 
-    //     return res.render("students/show", { student })
-    // },
-    // async edit(req, res) {
-    //     let results = await Students.find(req.params.id)
-    //     const student = results.rows[0]
+        return res.render("students/show", { student })
+    },
+    async edit(req, res) {
+        let results = await Students.find(req.params.id)
+        const student = results.rows[0]
 
+        student.birth = date(student.birth).iso
 
-    //     return res.render("students/edit", { student })
-    // },
-    // async put(req, res) {
-    //    const keys = Object.keys(req.body)
+        results = await Students.teachersSelectOptions()
+        const teacherOptions = results.rows 
 
-    //    for (key of keys) {
-    //        if (req.body[key] == "") {
-    //            return res.send("please, fill all fields")
-    //        }
-    //    }
+        return res.render("students/edit", { student, teacherOptions })
+    },
+    async put(req, res) {
+       const keys = Object.keys(req.body)
 
-    //    await Students.update(req.body)
+       for (key of keys) {
+           if (req.body[key] == "") {
+               return res.send("please, fill all fields")
+           }
+       }
+
+       await Students.update(req.body)
       
-    //    return res.redirect(`/students/${req.body.id}`)
-    // },
-    // async delete(req, res) {
-    //     await Students.delete(req.body.id)
+       return res.redirect(`/students/${req.body.id}`)
+    },
+    async delete(req, res) {
+        await Students.delete(req.body.id)
 
-    //     return res.redirect(`/students`)
-    // }
+        return res.redirect(`/students`)
+    }
 } 
