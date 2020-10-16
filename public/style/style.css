@@ -271,6 +271,19 @@ tbody tr td:last-child a,
     border-radius: 4px;
 }
 
+tbody tr td:nth-child(2) span {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
 .table-container > a {
     margin-bottom: 32px;
     display: inline-block;

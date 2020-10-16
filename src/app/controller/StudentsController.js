@@ -1,5 +1,5 @@
 const Students = require('../models/Students')
-const { date, grade } = require('../../lib/utils')
+const { date, grade, schoolYear } = require('../../lib/utils')
 
 module.exports = {
     async index(req, res) {
@@ -11,7 +11,7 @@ module.exports = {
 
         let results = await Students.paginate(filter, limit, offset)
         const students = results.rows
-        
+
         students.pagination = {
             total: Math.ceil(students[0].total / limit),
             page

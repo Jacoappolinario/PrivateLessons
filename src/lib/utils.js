@@ -65,6 +65,27 @@ module.exports = {
             case "3EM":
                 return "3º ano do Ensino Médio"
         }
+    },
+    schoolYear(value) {
+        let expr = value
+        switch(expr) {
+            case "5EF":
+                return "5º EF"
+            case "6EF":
+                return "6º EF"
+            case "7EF":
+                return "7º EF"
+            case "8EF":
+                return "8º EF"
+            case "9EF":
+                return "9º EF"
+            case "1EM":
+                return "1º EM"
+            case "2EM":
+                return "2º EM"
+            case "3EM":
+                return "3º EM"
+        }
     }
 
 }
