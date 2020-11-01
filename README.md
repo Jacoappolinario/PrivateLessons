@@ -1,43 +1,44 @@
-# Private Lessons
+<h3 align="center">
+    <img alt="Private Lessons" title"#logo" src="https://i.ibb.co/f2XM06d/Captura-de-tela-2020-10-11-185952.png">
+    <br><br>
+    <b>Private Lessons</b>
+    <br><br>
+    <p align="center">
+        <img src="https://img.shields.io/badge/By-Jac%C3%B3%20Apolin%C3%A1rio-00E88F">
+        <img src="https://img.shields.io/badge/License-MIT-00E88F">
+    </p>
+</h3>
 
-[![Author](https://img.shields.io/badge/author-Jacoappolinario-00E88F?style=flat-square)](https://github.com/Jacoappolinario)
-![Author](https://img.shields.io/badge/Languages-3-%2300E88F)
+## 🚀 Sobre
 
+Private Lessons é uma plataforma de gerenciamento de aulas particulares, onde é possível cadastrar alunos e professores, tendo controle sobre quais matérias estão sendo ministradas por cada um dos profissionais de ensino, e a quantidade de carga horaria de cada aluno.
 
-> Private lessons management platform, where it is possible to register students and teachers, having control over which subjects are being taught by each of the teaching professionals, and the amount of workload of each student.
+## 👷🏾‍♂️ Como usar?
 
-<p align="center">
-  <img align="center" src="https://i.ibb.co/f2XM06d/Captura-de-tela-2020-10-11-185952.png" border="0">
-</p>
+<h4> Você precisa das seguintes ferramentas instaladas para executar este projeto: </h4>
+ <p> <a href="https://nodejs.org/en/">Node.js + NPM<a>, <a href="https://www.postgresql.org/download/"> PostgreSQL </a> e <a href="https://www.electronjs.org/apps/postbird"> Postbird. </a> </p>
 
-# 👷🏾‍♂️Installation
-**You need to install [Node.js](https://nodejs.org/en/download/) first, then in order to clone the project via HTTPS, run this command:**
+```bash
+# Faça um clone
+$ git clone https://github.com/Jacoappolinario/PrivateLessons.git
 
-```git clone https://github.com/Jacoappolinario/PrivateLessons.git```
+# Navegue até o repositório clonado:
+$ cd PrivateLessons
 
-SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command:
+```
+Adicione credenciais de acesso ao banco de dados no arquivo src / config / db.js.
 
-```git clone git@github.com:Jacoappolinario/PrivateLessons.git```
+```bash
+# Baixe as dependências:
+$ npm install
 
-**Install dependencies**
+# Divirta-se
+$ npm start
+```
 
-```npm install```
-
-# 🏃🏾‍♂️Getting Started
-
-```npm start```
-
-# 📮Faq
-
-**Question:** What are the tecnologies used in this project?
-
-**Answer:** The tecnologies used in this project are NodeJS + Express Framework, Nodemon, Nunjucks, HTML/CSS, and PostgreSQL.
-
-# 📕License
-
-Released in 2020 (Work in progress) This project is under the [MIT License.](/LICENSE)
+## 📕 Licença
+Lançado em 2020 (Trabalho em andamento) Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](/LICENSE) para mais detalhes.
 
 ---
 
-Feito com 💙 by [Jacó Apolinário](https://github.com/Jacoappolinario/)
-
+Feito com 💙 by [Jacó Apolinário](https://www.linkedin.com/in/jacoapolinario/)
